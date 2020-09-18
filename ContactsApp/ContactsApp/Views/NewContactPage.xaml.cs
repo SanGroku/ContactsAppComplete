@@ -10,12 +10,12 @@ namespace ContactsApp.Views
 {
     public partial class NewContactPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Contact Contact { get; set; }
 
         public NewContactPage()
         {
             InitializeComponent();
-            BindingContext = new NewItemViewModel();
+            BindingContext = new NewContactViewModel();
         }
     }
 }

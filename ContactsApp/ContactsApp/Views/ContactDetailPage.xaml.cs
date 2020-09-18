@@ -9,7 +9,7 @@ namespace ContactsApp.Views
         public ContactDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new ContactDetailViewModel();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ContactsApp.Models
 {
-    public class Item
+    public class Contact
     {
         public string Id { get; set; }
 

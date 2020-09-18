@@ -5,11 +5,20 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding FirstName}" FontSize="Small"/>
-        <Label Text="{Binding LastName}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="First Name: " FontSize="Medium" />
+            <Label Text="{Binding FirstName}" FontSize="Medium"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Last Name: " FontSize="Medium" />
+            <Label Text="{Binding LastName}" FontSize="Medium"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Description:" FontSize="Medium" />
+            <Label Text="{Binding Description}" FontSize="Medium"/>
+        </StackLayout>
+
+        
     </StackLayout>
     
 </ContentPage>

@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 namespace ContactsApp.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewContactViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        private string firstName = string.Empty;
+        private string lastName = string.Empty;
+        private string description = string.Empty;
 
-        public NewItemViewModel()
+        public NewContactViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
@@ -22,14 +23,19 @@ namespace ContactsApp.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(firstName)
+                && !String.IsNullOrWhiteSpace(lastName);
         }
 
-        public string Text
+        public string FirstName
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => firstName;
+            set => SetProperty(ref firstName, value);
+        }
+        public string LastName
+        {
+            get => lastName;
+            set => SetProperty(ref lastName, value);
         }
 
         public string Description
@@ -49,14 +55,15 @@ namespace ContactsApp.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            Contact newContact = new Contact()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
+                FirstName= FirstName,
+                LastName= LastName,
                 Description = Description
             };
 
-            await DataStore.AddItemAsync(newItem);
+            await DataStore.AddItemAsync(newContact);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
